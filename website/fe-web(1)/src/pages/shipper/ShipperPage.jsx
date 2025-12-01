@@ -50,7 +50,7 @@ export default function ShipperPage() {
     .catch((err) => console.log(err));
   }
 
-  //  Lọc các đơn mà shipper quan tâm
+
   const relevantOrders = orders.filter((o) =>
     ["finish", "delivering"].includes(o.status)
   );
