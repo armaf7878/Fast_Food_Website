@@ -27,11 +27,6 @@ export default function RegisterPage() {
       return;
     }
 
-    if (exists) {
-      alert("Tên người dùng đã tồn tại!");
-      return;
-    }
-
     const newUser = {
       full_name: form.full_name,
       email: form.email,
