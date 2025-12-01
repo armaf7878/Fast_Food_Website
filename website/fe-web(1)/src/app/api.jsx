@@ -2,6 +2,13 @@ import axios from 'axios';
 import axiosClient from './apiClient';
 const BASE_URL = 'https://fast-food-website.onrender.com/api';
 
+const API_Register = async(user) => {
+    return axios
+    .post(`${BASE_URL}/accounts/register/`, user)
+    .then((res) => res.data)
+    .catch((err) => {throw err});
+}; export {API_Register}
+
 const API_Login = async(email, password) => {
     return axios
     .post(`${BASE_URL}/accounts/login/`, {email, password})

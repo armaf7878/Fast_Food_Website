@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_Register } from "../../app/api";
 import AuthLayout from "../../layouts/AuthLayout";
 import "../../styles/layout.css";
 
@@ -7,11 +8,11 @@ import "../../styles/layout.css";
 export default function RegisterPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    username: "",
+    full_name: "",
     email: "",
     password: "",
-    confirm: "",
-    role: "user",
+    phone: "",
+    gender: "",
   });
 
   const handleChange = (e) => {
@@ -26,31 +27,30 @@ export default function RegisterPage() {
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-    const exists = users.some((u) => u.username === form.username);
-
     if (exists) {
       alert("Tên người dùng đã tồn tại!");
       return;
     }
 
     const newUser = {
-      username: form.username,
+      full_name: form.full_name,
       email: form.email,
       password: form.password,
-      role: form.role,
-      name: form.username,
-      phone: "",
-      gender: "",
-      dob: "",
-      avatar: "",
+      phone: form.phone,
+      gender: form.gender,
     };
 
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
+    API_Register(newUser)
+    .then((res) => {
+      alert(res.message, "Hãy đăng nhập"),
+      navigate("/login");
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Tạo tài khoản thất bại")
+    })
 
-    alert("Đăng ký thành công! Hãy đăng nhập.");
-    navigate("/login");
+    
   };
 
   return (
@@ -59,9 +59,17 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit} className="login-form">
         <input
           type="text"
-          name="username"
+          name="full_name"
           placeholder="Tên người dùng"
-          value={form.username}
+          value={form.full_name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Số điện thoại"
+          value={form.phone}
           onChange={handleChange}
           required
         />
@@ -89,12 +97,10 @@ export default function RegisterPage() {
           onChange={handleChange}
           required
         />
-        <label>Chọn vai trò:</label>
-        <select name="role" value={form.role} onChange={handleChange}>
-          <option value="user">Khách hàng</option>
-          <option value="staff">Nhân viên</option>
-          <option value="shipper">Shipper</option>
-          <option value="admin">Admin</option>
+        <label>Chọn giới tính:</label>
+        <select name="role" value={form.gender} onChange={handleChange}>
+          <option value="male">Nam</option>
+          <option value="female">Nữ</option>
         </select>
         <button type="submit">Đăng ký</button>
       </form>
