@@ -1,6 +1,6 @@
 import axios from 'axios';
 import axiosClient from './apiClient';
-const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = 'https://fast-food-website.onrender.com/api';
 
 const API_Login = async(email, password) => {
     return axios

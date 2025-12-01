@@ -13,7 +13,7 @@ Django==5.2.7
 django-cors-headers==4.9.0
 django-filter==25.2
 djangorestframework==3.16.1
-djangorestframework_simplejwt==5.5.1
+git+https://github.com/armaf7878/rest_framework_simplejwt_custom.git#egg=rest_framework_simplejwt
 drf-spectacular==0.28.0
 h11==0.16.0
 httpcore==1.0.9
