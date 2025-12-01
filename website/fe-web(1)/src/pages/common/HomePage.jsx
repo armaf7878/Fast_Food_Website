@@ -450,7 +450,7 @@ export default function HomePage() {
               <span className="ff-badge">Tuyển dụng Nhân viên</span>
               <h3>Đăng ký làm Nhân viên</h3>
               <p>Làm việc tại văn phòng/kho hàng, hưởng lương cố định và phúc lợi hấp dẫn.</p>
-              <Link to="/apply?position=staff" className="btn-primary">Đăng ký ngay</Link>
+              <a href="https://forms.gle/3k1n3Twsi5fkNyPG6" className="btn-primary">Đăng ký ngay</a>
             </div>
           </div>
 
@@ -462,7 +462,7 @@ export default function HomePage() {
               <span className="ff-badge">Đăng ký làm tài xế</span>
               <h3>Giao hàng cùng chúng tôi</h3>
               <p>Nhận nhiều ưu đãi, thu nhập linh hoạt và cơ hội làm chủ thời gian.</p>
-              <Link to="/apply?position=shipper" className="btn-primary">Bắt đầu ngay</Link>
+              <a href="https://forms.gle/bE1ptzu5N1prB2738" className="btn-primary">Bắt đầu ngay</a>
             </div>
           </div>
         </section>
