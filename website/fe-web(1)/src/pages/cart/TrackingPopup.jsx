@@ -17,15 +17,13 @@ export default function TrackingPopup({ visible, onClose, shipperPos, order }) {
     const customerPos = { lat: order.order_lat, lon: order.order_long };
 
 
-    // -----------------------------------------------------
-    // 🛰 WebSocket lắng nghe vị trí shipper realtime
-    // -----------------------------------------------------
+
     useEffect(() => {
         if (!visible) return;
 
         const token = localStorage.getItem("currentUser");
         const socket = new WebSocket(
-            `ws://127.0.0.1:8000/ws/orders/${order.order_id}/track/?token=${token}`
+            `wss://fast-food-website.onrender.com/ws/orders/${order.order_id}/track/?token=${token}`
         );
 
         socket.onmessage = (e) => {
@@ -35,7 +33,7 @@ export default function TrackingPopup({ visible, onClose, shipperPos, order }) {
                     setCurrentShipper({
                         lat: data.lat,
                         lon: data.lng,
-                        timestamp: Date.now() // ép re-render
+                        timestamp: Date.now() 
                     });
                 }
             } catch (err) {
@@ -47,9 +45,6 @@ export default function TrackingPopup({ visible, onClose, shipperPos, order }) {
     }, [visible, order.order_id]);
 
 
-    // -----------------------------------------------------
-    // 🛣 Hàm gọi OSRM để vẽ route shipper → khách
-    // -----------------------------------------------------
     const getRouteFromOSRM = async (start, end) => {
         try {
             const url = `https://router.project-osrm.org/route/v1/driving/${start.lon},${start.lat};${end.lon},${end.lat}?overview=full&geometries=geojson`;
@@ -66,18 +61,11 @@ export default function TrackingPopup({ visible, onClose, shipperPos, order }) {
         }
     };
 
-
-    // -----------------------------------------------------
-    // 🔄 Update route mỗi khi shipper di chuyển
-    // -----------------------------------------------------
     useEffect(() => {
         getRouteFromOSRM(currentShipper, customerPos);
     }, [currentShipper]);
 
 
-    // -----------------------------------------------------
-    // RENDER
-    // -----------------------------------------------------
     return (
         <div className="tracking-overlay">
             <div className="tracking-card">

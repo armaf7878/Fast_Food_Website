@@ -17,6 +17,26 @@
     align-items: center;
     z-index: 999;
 }
+.btn-location {
+    padding: 10px 16px;
+    background: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-location:hover {
+    background: #005fcc;
+}
+
+.btn-location:disabled {
+    background: #9fc3ff;
+    cursor: not-allowed;
+}
+
 
 /* Popup box */
 .voucher-popup {

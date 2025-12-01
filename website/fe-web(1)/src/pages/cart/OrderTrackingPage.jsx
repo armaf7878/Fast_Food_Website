@@ -59,7 +59,7 @@ const OrderCard = ({ order, onCancel }) => {
                 <h4>Chi tiết món ăn:</h4>
                 {order.order_items_read.map((item, index) => (
                     <div key={item.orderItem_id || index} className="order-item">
-                        <img src={`http://localhost:8000/media/${item.food_img}`|| 'https://via.placeholder.com/50'} alt={item.food_name} />
+                        <img src={`https://fast-food-website.onrender.com/media/${item.food_img}`|| 'https://via.placeholder.com/50'} alt={item.food_name} />
                         <span className="item-name">{item.food_name}</span>
                         <span className="item-qty">x {item.quantity}</span>
                         <span className="item-price">{formatCurrency(item.food_price * item.quantity)}</span>

@@ -29,7 +29,7 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
   useEffect(() => {
     if (!visible) return;
     const token = localStorage.getItem('currentUser');
-    const ws = new WebSocket(`ws://127.0.0.1:8000/ws/orders/${order.order_id}/track/?token=${token}`);
+    const ws = new WebSocket(`wss://fast-food-website.onrender.com/ws/orders/${order.order_id}/track/?token=${token}`);
 
     const geoWatch = navigator.geolocation.watchPosition(
       (pos) => {
@@ -40,7 +40,6 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
         console.log(newPos)
 
         setShipmerPosSafely(newPos);
-        // Gửi vị trí shipper lên server
         ws.send(
           JSON.stringify({
             lat: newPos.lat,
@@ -54,7 +53,6 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
 
     function setShipmerPosSafely(newPos) {
       setShipperPos((prev) => {
-        // tránh re-render vô hạn nếu vị trí không đổi
         if (!prev) return newPos;
         if (prev.lat === newPos.lat && prev.lon === newPos.lon) return prev;
         return newPos;
@@ -116,7 +114,7 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
   return (
     <div className="shipper-modal-overlay">
       <div className="shipper-modal">
-        {/* Header */}
+
         <div className="shipper-modal-header">
           <div>
             <h3>Đơn hàng #{order.order_id}</h3>
@@ -160,6 +158,10 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
                   <span className="label">Tổng tiền</span>
                   <p className="price">{formatCurrency(order.total)}</p>
                 </div>
+                <div>
+                  <span className="label">Trạng thái thanh toán</span>
+                  <p className="price">{order.payment_status == 'pending'? 'Chưa thanh toán': 'Đã thanh toán'}</p>
+                </div>
                 {order.voucher_code && (
                   <div>
                     <span className="label">Mã giảm giá</span>
@@ -181,7 +183,7 @@ export default function ShipperOrderDetailPopup({ visible, onClose, order }) {
                       <img
                         src={
                           item.food_img
-                            ? `http://localhost:8000/media/${item.food_img}`
+                            ? `https://fast-food-website.onrender.com/media/${item.food_img}`
                             : "https://via.placeholder.com/48"
                         }
                         alt={item.food_name}

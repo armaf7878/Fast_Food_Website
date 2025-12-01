@@ -21,7 +21,9 @@ export default function CheckoutPage() {
     const [finalTotal, setFinalTotal] = useState(0); 
     const [voucherList, setVoucherList] = useState([]);
     const [showVoucherPopup, setShowVoucherPopup] = useState(false);
-
+    const [order_lat, setOrder_Lat] = useState(0);
+    const [order_long, setOrder_Long] = useState(0);
+    const [loadingLocation, setLoadingLocation] = useState(false);
     const [form, setForm] = useState({
         name: "",
         address: "",
@@ -76,8 +78,8 @@ export default function CheckoutPage() {
         // Chuẩn hóa body API
         const orderPayload = {
             voucher_id: appliedDiscount ? appliedDiscount.voucher_id : null,
-            order_lat: currentUser.order_lat || 0,
-            order_long: currentUser.order_long || 0,
+            order_lat: order_lat || 0,
+            order_long:order_long || 0,
             order_address: form.address,
             order_phone: form.phone,
             payment_method: paymentMethod,
@@ -95,10 +97,50 @@ export default function CheckoutPage() {
             else(navigate("/order-tracking"))
         })
         .catch((err) =>{
-            alert(err.response.data)
+            console.log(err)
         });
-
+        
+        
+        
     };
+
+    const getUserPosition = () => {
+        if (!navigator.geolocation) {
+            alert("Trình duyệt không hỗ trợ định vị.");
+            return;
+        }
+        setLoadingLocation(true);
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const { latitude, longitude } = pos.coords;
+                setOrder_Lat(latitude);
+                setOrder_Long(longitude);
+                setLoadingLocation(false);
+                console.log( pos.coords);
+            }),
+            (err) => {
+                console.error("Lỗi định vị:", err);
+                switch (err.code) {
+                    case err.PERMISSION_DENIED:
+                        alert("Bạn đã từ chối quyền truy cập vị trí!");
+                        break;
+                    case err.POSITION_UNAVAILABLE:
+                        alert("Không lấy được vị trí hiện tại.");
+                        break;
+                    case err.TIMEOUT:
+                        alert("Lấy vị trí quá lâu, vui lòng thử lại.");
+                        break;
+                    default:
+                        alert("Không xác định được vị trí.");
+                }
+            },
+
+            {
+                enableHighAccuracy: true,   
+                timeout: 10000,             
+                maximumAge: 0
+            }
+    }
 
     return (
         <MainLayout>
@@ -145,7 +187,14 @@ export default function CheckoutPage() {
                             onChange={handleChange}
                             rows="3"
                         ></textarea>
-
+                        <button 
+                            type="button"
+                            onClick={() => getUserPosition()}
+                            className="btn-location"
+                            disabled={loadingLocation}
+                        >
+                            {loadingLocation ? "Đang lấy vị trí..." : "Lấy vị trí của tôi"}
+                        </button>
                         {/* Payment */}
                         <div className="payment-method">
                             <h4>Chọn Phương thức thanh toán</h4>
@@ -206,6 +255,7 @@ export default function CheckoutPage() {
                         </div>
                     </div>
                 </div>
+                
                 {showVoucherPopup && (
                     <div className="voucher-popup-overlay">
                         <div className="voucher-popup">

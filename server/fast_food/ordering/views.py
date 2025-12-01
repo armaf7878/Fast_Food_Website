@@ -169,6 +169,7 @@ def finish_order(request, order_id):
     if order.status != "delivering":
         return Response({"detail": "Đơn chưa ở trạng thái delivering"}, status=400)
 
+    order.payment_status = "paid"
     order.status = "finish"
     order.save()
 
