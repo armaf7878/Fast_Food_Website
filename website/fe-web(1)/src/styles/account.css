@@ -1,0 +1,297 @@
+/* ---------------------------------------------------------------------- */
+/* VARIABLES & BASE */
+/* ---------------------------------------------------------------------- */
+:root {
+    --primary-color: #ff7b00; /* Màu nhấn chính (Cam ấm) */
+    --primary-hover: #e66e00; 
+    --bg-color: #f7f9fb; /* Nền trang nhẹ */
+    --text-dark: #2c3e50; /* Màu chữ chính (Xanh than) */
+    --text-light: #7f8c8d; /* Màu chữ phụ */
+    --border-soft: #e4e6e9;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.account-container {
+    display: flex;
+    background: var(--bg-color);
+    font-family: 'Inter', "Segoe UI", sans-serif;
+    padding: 30px 60px;
+    gap: 40px;
+    min-height: calc(100vh - 100px);
+}
+
+/* ---------------------------------------------------------------------- */
+/* ACCOUNT SIDEBAR */
+/* ---------------------------------------------------------------------- */
+.account-sidebar {
+    width: 260px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    padding: 25px;
+    height: fit-content;
+}
+
+.profile-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 20px;
+}
+
+.profile-mini img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
+}
+.profile-mini h4 {
+    color: var(--text-dark);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.profile-mini span {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.account-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-sidebar li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    color: var(--text-dark);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+/* 💡 Màu cam cho li:hover */
+.account-sidebar li:hover {
+    background-color: #fff3e0;
+    color: var(--primary-color);
+}
+
+/* 💡 Màu cam cho li.active */
+.account-sidebar li.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(255, 123, 0, 0.3);
+}
+
+.account-sidebar li.active svg {
+    color: white;
+}
+
+/* ---------------------------------------------------------------------- */
+/* MAIN CONTENT & FORM */
+/* ---------------------------------------------------------------------- */
+.account-main {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.account-main h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.account-main p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-soft);
+}
+
+.account-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.form-left {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-left label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+/* 💡 Tăng margin-top để ô điền thông tin cách xa chữ */
+.form-left input:not([type="radio"]),
+.single-col input {
+    padding: 10px 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    margin-top: 10px; /* 💡 Tăng từ 6px lên 10px */
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* 💡 Màu cam cho input focus */
+.form-left input:focus:not([type="radio"]),
+.single-col input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 123, 0, 0.2);
+    outline: none;
+}
+
+.gender-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 8px;
+    font-weight: normal;
+}
+.gender-row label {
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+/* 💡 Màu cam cho Save Button */
+.save-btn {
+    margin-top: 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(255, 123, 0, 0.4);
+    transition: background 0.3s, transform 0.1s;
+}
+
+.save-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* AVATAR SECTION (FORM RIGHT) */
+/* ---------------------------------------------------------------------- */
+.form-right {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--border-soft);
+    object-fit: cover;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 💡 Sử dụng màu cam cho nút Upload */
+.upload-btn {
+    background: var(--primary-color); 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+}
+.upload-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* ---------------------------------------------------------------------- */
+/* SINGLE COLUMN LAYOUT (Cho form Mật khẩu/SĐT) */
+/* ---------------------------------------------------------------------- */
+.single-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 500px;
+}
+
+/* 💡 Áp dụng khoảng cách cho input trong single-col (đã được định nghĩa chung bên trên) */
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .account-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .account-sidebar {
+        width: 100%;
+        padding: 20px;
+        box-shadow: none;
+    }
+    
+    .account-sidebar ul {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+    .account-sidebar li {
+        flex-shrink: 0;
+    }
+
+    .profile-mini {
+        display: none;
+    }
+
+    .account-main {
+        padding: 20px;
+    }
+
+    .account-form {
+        flex-direction: column-reverse;
+        gap: 25px;
+    }
+    
+    .form-right {
+        padding-top: 10px;
+        width: 100%;
+    }
+    
+    .single-col {
+        max-width: 100%;
+    }
+}

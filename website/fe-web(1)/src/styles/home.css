@@ -1,0 +1,1014 @@
+/* ======================== */
+/* 1. Global & Utilities    */
+/* ======================== */
+.ff-home {
+    padding: 0 0 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ff-section {
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ff-section h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.accent {
+    color: #e63946; /* Giữ màu đỏ cho các điểm nhấn quan trọng như "Flash Sale" */
+}
+
+/* ======================== */
+/* 2. Hero Section          */
+/* ======================== */
+.ff-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 20px;
+    background: #fff8f0; /* Nền nhẹ nhàng hơn, hơi ngả vàng/cam */
+    border-radius: 16px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ff-hero-main {
+    flex: 2.5;
+    padding-right: 30px;
+}
+
+.ff-hero-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ff-hero-pill {
+    display: inline-block;
+    background-color: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ff-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.ff-hero p {
+    color: #7b4f00; /* Màu chữ đậm hơn một chút để tương phản với nền cam */
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+/* Hero Countdown */
+.ff-hero-countdown {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #e63946; /* Giữ màu đỏ cho countdown để tạo sự khẩn cấp */
+}
+
+.ff-hero-countdown span {
+    background: #ffe0b2; /* Nền nhẹ nhàng cho ô đếm ngược */
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.ff-hero-countdown label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #333;
+    align-self: flex-end;
+    margin-bottom: 5px;
+}
+
+/* Hero Search */
+.ff-search-container {
+    display: flex;
+    border: 2px solid #ff7b00; /* Cam chủ đạo */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.ff-search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: none;
+    font-size: 1rem;
+}
+
+.ff-search-input:focus {
+    outline: none;
+}
+
+.ff-search-button {
+    background-color: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.ff-search-button:hover {
+    background-color: #e66a00; /* Cam đậm hơn khi hover */
+}
+
+/* Flash Cards trong Hero (Khác với Flash Deals Section) */
+.ff-hero-flash-list {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.ff-flash-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff7b00; /* Cam chủ đạo */
+    flex: 1;
+}
+
+.ff-flash-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.ff-flash-info p {
+    margin: 0 0 3px 0;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.ff-flash-info .ff-price strong {
+    color: #e63946; /* Giữ màu đỏ cho giá Flash */
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.ff-flash-info .ff-price span {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* Hero Voucher */
+.ff-voucher-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff3e0; /* Nền voucher nhẹ nhàng màu cam */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px dashed #ff7b00; /* Viền đứt nét màu cam */
+}
+
+.ff-voucher-icon {
+    font-size: 1.5rem;
+}
+
+.ff-voucher-card .voucher-title {
+    font-weight: 700;
+    color: #ff7b00; /* Màu cam chủ đạo */
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.ff-voucher-card .voucher-desc {
+    font-size: 0.8rem;
+    color: #7b4f00; /* Màu chữ đậm hơn */
+    margin: 0;
+}
+
+.ff-voucher-card .voucher-code {
+    display: inline-block;
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.ff-voucher-card button {
+    margin-left: auto;
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* Quick Links */
+.ff-hero-quick-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ff-hero-quick-links button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff7b00; /* Cam chủ đạo */
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.ff-hero-quick-links button:hover {
+    color: #e63946; /* Màu đỏ khi hover để tạo điểm nhấn */
+}
+
+.ff-hero-quick-links button span {
+    font-size: 1.5rem;
+}
+
+/* Location Selector */
+.ff-hero-location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid #ff7b00; /* Viền cam chủ đạo */
+}
+
+.ff-hero-location p {
+    margin: 0 0 5px 0;
+    font-weight: 700;
+    color: #333;
+}
+
+.ff-hero-location span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.location-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.location-controls select {
+    padding: 10px 15px;
+    border: 1px solid #ff7b00; /* Cam chủ đạo */
+    border-radius: 6px;
+    background: white;
+    font-size: 1rem;
+    color: #ff7b00; /* Cam chủ đạo */
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eta-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.eta-chip span {
+    color: white;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+
+/* ======================== */
+/* 3. Flash Deals Section   */
+/* ======================== */
+
+.ff-deals-section {
+    padding: 30px 0;
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ff-deals-section h2 {
+    color: #e63946; /* Giữ màu đỏ nổi bật cho Flash Sale */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+/* Container cho các deal, có cuộn ngang */
+.flash-deals-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 20px;
+    /* Ẩn thanh cuộn mặc định */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.flash-deals-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Card ưu đãi */
+.deal-card {
+    flex-shrink: 0;
+    width: 200px; /* Chiều rộng cố định cho mỗi deal */
+    background: #fff;
+    border: 2px solid #ff7b00; /* Viền nổi bật màu cam */
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 123, 0, 0.2); /* Bóng đổ cam khi hover */
+}
+
+.deal-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.deal-card h4 {
+    font-size: 1rem;
+    color: #333;
+    margin: 0 10px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.deal-price-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.deal-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e63946; /* Giữ màu đỏ cho giá mới */
+}
+
+.deal-original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.deal-discount {
+    display: inline-block;
+    background-color: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* ======================== */
+/* 4. Categories Section    */
+/* ======================== */
+.ff-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.ff-category {
+    background: #fff8f0;
+    border-radius: 12px;
+    /* --- CÁC THAY ĐỔI ĐỂ TẠO KHỐI VUÔNG VÀ CĂN GIỮA TUYỆT ĐỐI --- */
+    width: 100%; /* Chiếm hết cột của Grid */
+    aspect-ratio: 1 / 1; /* Đảm bảo tỷ lệ 1:1 (Hình vuông) */
+    min-height: 100px; /* Đảm bảo chiều cao tối thiểu */
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; /* Căn giữa nội dung tuyệt đối trong không gian 1:1 */
+    padding: 5px; /* Giảm padding để nội dung không bị đẩy ra khỏi khung vuông */
+    /* --------------------------------------- */
+    
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.ff-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(255, 123, 0, 0.15);
+}
+
+.ff-category img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ff7b00;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px; /* Giảm khoảng cách để tối ưu không gian */
+}
+
+.ff-category span {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem; /* Giảm kích thước font một chút nếu cần */
+}
+
+/* ======================== */
+/* 5. Restaurants Section   */
+/* ======================== */
+.ff-restaurants {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.ff-restaurant {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+}
+
+.ff-restaurant .brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff7b00; /* Cam chủ đạo */
+    border: 2px solid #ff7b00; /* Viền cam chủ đạo */
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: #fff8f8; /* Nền nhẹ nhàng hơn */
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.ff-restaurant .brand:hover {
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+}
+
+/* ======================== */
+/* 6. Order Banner Section  */
+/* ======================== */
+.ff-order-banner {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    padding: 40px;
+    border-radius: 16px;
+    margin-top: 30px;
+}
+
+.ff-order-left img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.ff-order-right {
+    flex: 1;
+}
+
+.ff-order-right h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.ff-order-right .highlight {
+    color: #ffe0b2; /* Màu cam nhạt hơn để highlight */
+    font-weight: 900;
+}
+
+.ff-order-right .personalised {
+    background-color: #e63946; /* Giữ màu đỏ cho "Cá nhân hóa" để nổi bật */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 900;
+}
+
+.ff-order-right p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+
+.ff-app-buttons {
+    display: flex;        
+    gap: 15px;             
+    align-items: center;   
+    margin-top: 20px;
+}
+
+.ff-app-buttons img {
+    height: 45px;          
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.ff-app-buttons img:hover {
+    transform: translateY(-2px);
+}
+/* ======================== */
+/* 7. Partner/Rider Section */
+/* ======================== */
+.ff-partner-rider {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.ff-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.ff-card-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.ff-card-content {
+    padding: 20px;
+}
+
+.ff-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.ff-card.partner .ff-badge {
+    background: #ff7b00; /* Cam chủ đạo */
+    color: white;
+}
+
+.ff-card.rider .ff-badge {
+    background: #e63946; /* Màu đỏ cho Rider để phân biệt */
+    color: white;
+}
+
+.ff-card h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: #333;
+}
+
+.ff-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ff7b00; /* Cam chủ đạo */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #e66a00; /* Cam đậm hơn khi hover */
+}
+
+/* ======================== */
+/* 8. Stats Section         */
+/* ======================== */
+.ff-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ff-stat {
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+
+.ff-stat:last-child {
+    border-right: none;
+}
+
+.ff-stat h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ff7b00; /* Cam chủ đạo */
+    margin: 0 0 5px 0;
+}
+
+.ff-stat p {
+    font-size: 1rem;
+    color: #7b4f00; /* Màu chữ đậm hơn để tương phản */
+    margin: 0;
+}
+.about-section {
+    padding-top: 50px; /* Thêm khoảng cách phía trên */
+    padding-bottom: 80px;
+    background-color: #f7f7f7; /* Nền xám nhạt */
+    border-top: 1px solid #eee;
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1f1f1f;
+    font-size: 2rem;
+}
+
+.about-tabs {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Chứa shadow cho nội dung */
+}
+
+/* --- Thanh điều hướng Tab (Tab Nav) --- */
+.tab-nav {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.tab-nav button {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-nav button:hover {
+    color: #ff7b00;
+}
+
+.tab-nav button.active {
+    color: #ff7b00;
+    border-bottom: 3px solid #ff7b00;
+    background-color: #fff8f5; /* Nền nhạt hơn khi active */
+}
+
+/* --- Nội dung Tab (Tab Content) --- */
+.tab-content {
+    padding: 30px;
+}
+
+.tab-content-inner h3 {
+    color: #1f1f1f;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff7b00;
+    padding-left: 15px;
+}
+
+.tab-content-inner p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.tab-content-inner ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.tab-content-inner ul li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ff7b00"><path fill-rule="evenodd" d="M16.704 4.304a1 1 0 01-1.408 0L8 11.592 4.704 8.304a1 1 0 10-1.408 1.408l4 4a1 1 0 001.408 0l8-8a1 1 0 000-1.408z" clip-rule="evenodd" /></svg>') no-repeat left 6px;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: #444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: #ff7b00;
+}
+
+/* Media Queries cho Responsive Design */
+@media (max-width: 992px) {
+    .ff-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .ff-hero-main {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .ff-hero-side {
+        width: 100%;
+    }
+
+    .ff-hero-flash-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .ff-hero-quick-links,
+    .ff-hero-location,
+    .ff-deals-section {
+        margin: 20px 10px 0 10px;
+        padding: 15px;
+    }
+
+    .ff-deals-section h2, .ff-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .flash-deals-list {
+        padding: 10px;
+        justify-content: flex-start; /* Giữ cuộn ngang */
+    }
+
+    .deal-card {
+        width: 180px;
+    }
+
+    .ff-categories {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        padding: 0 10px;
+    }
+
+    .ff-restaurants {
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .ff-restaurant {
+        flex-basis: 50%; /* 2 cột trên mobile */
+        margin-bottom: 10px;
+    }
+
+    .ff-order-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 30px;
+        margin: 20px 10px 0 10px;
+    }
+
+    .ff-order-left img {
+        max-width: 200px;
+    }
+
+    .ff-partner-rider {
+        flex-direction: column;
+        margin: 20px 10px 0 10px;
+        gap: 20px;
+    }
+
+    .ff-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 15px;
+        margin: 20px 10px 0 10px;
+        gap: 15px;
+    }
+
+    .ff-stat {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+
+    .ff-stat:nth-child(even) {
+        border-right: none;
+    }
+
+    .ff-stat:nth-child(2n-1) {
+        border-right: 1px solid #eee; /* Giữ đường kẻ giữa các cột trên mobile */
+    }
+
+    .ff-stat:last-child,
+    .ff-stat:nth-last-child(2) {
+        border-bottom: none;
+    }
+}
+/* Partner Form Styling */
+.ff-partner-form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.ff-partner-form .form-group {
+    margin-bottom: 15px;
+}
+
+.ff-partner-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ff-partner-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Success Message Styling */
+.ff-success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Greenish background */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.ml-2 {
+    margin-left: 8px; /* Dùng để tạo khoảng cách giữa nút Gửi và Hủy */
+}
+
+@media (max-width: 576px) {
+    .ff-hero h1 {
+        font-size: 2rem;
+    }
+
+    .ff-hero p {
+        font-size: 0.9rem;
+    }
+
+    .ff-search-container {
+        flex-direction: column;
+    }
+
+    .ff-search-input {
+        border-bottom: 1px solid #ff7b00;
+    }
+
+    .ff-search-button {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .ff-hero-quick-links {
+        overflow-x: auto;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+    
+    .ff-hero-quick-links button {
+        flex-shrink: 0;
+        min-width: 80px;
+        margin-right: 10px; /* Thêm khoảng cách cho cuộn ngang */
+    }
+
+    .ff-hero-location {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .location-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .location-controls select {
+        flex: 1;
+    }
+
+    .flash-deals-list {
+        padding: 10px 5px;
+    }
+
+    .ff-categories {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        padding: 0 5px;
+    }
+    
+    .ff-restaurant {
+        flex-basis: 100%; /* 1 cột trên mobile rất nhỏ */
+    }
+
+    .ff-stats {
+        grid-template-columns: 1fr; /* 1 cột duy nhất trên mobile nhỏ */
+    }
+
+    .ff-stat {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .ff-stat:last-child {
+        border-bottom: none;
+    }
+}

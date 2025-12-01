@@ -1,0 +1,492 @@
+/* ================================================= */
+/* 1. STYLES TRANG MENU CHÍNH */
+/* ================================================= */
+
+.menu-page {
+    padding: 2rem;
+    background: #f8f8f8;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.menu-header h2 {
+    font-weight: 700;
+    color: #111;
+    font-size: 1.8rem;
+}
+
+/* --- Search Box --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #ff9f00;
+    border-radius: 25px;
+    padding: 0.4rem 0.8rem;
+    background-color: #fff;
+    width: 280px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    padding-right: 5px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    color: #ff9f00;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* --- Category Bar --- */
+.category-bar {
+    display: flex;
+    gap: 0.8rem;
+    background-color: #ff9f00;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(255, 159, 0, 0.2);
+}
+
+.category-bar button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.category-bar .active {
+    background: #fff;
+    color: #ff9f00;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Food List & Card --- */
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.food-card {
+    display: flex;
+    flex-direction: column; 
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.food-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.food-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+.food-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+/* --- Footer (Giá & Nút Đặt hàng) --- */
+.food-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.8rem; 
+    border-top: 1px solid #eee;
+    gap: 1.2rem; 
+}
+
+.food-footer .price {
+    font-weight: 700;
+    color: #111;
+    font-size: 1.2rem;
+}
+
+/* Nút "Đặt hàng" MỚI */
+.order-cta-btn {
+    background: #ff9f00; 
+    color: #fff;
+    border: none;
+    padding: 8px 16px; 
+    border-radius: 8px; 
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(255, 159, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-cta-btn:hover {
+    background: #ffa733;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(255, 159, 0, 0.6);
+}
+
+/* ================================================= */
+/* 2. FOOD DETAIL MODAL STYLES (ĐÃ CẢI TIẾN) */
+/* ================================================= */
+
+/* Lớp phủ Modal */
+.modal-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    backdrop-filter: blur(3px); 
+}
+
+/* Khối nội dung Modal */
+.food-detail-modal {
+    background: #fff;
+    border-radius: 16px; 
+    width: 90%;
+    max-width: 800px; 
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    position: relative; 
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-overview {
+    display: flex;
+    padding: 30px; 
+    position: relative;
+    gap: 30px;
+}
+
+.main-overview .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    z-index: 10;
+}
+.main-overview .close-btn:hover {
+    color: #ff7b00;
+    transform: rotate(90deg);
+}
+
+.image-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.image-section .food-image {
+    width: 100%;
+    height: 250px; 
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-section .food-name {
+    margin-top: 0;
+    font-size: 2.2em;
+    color: #ff7b00; 
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.info-section .food-category {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.info-section .food-price {
+    font-size: 2.5em; 
+    color: #333;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.stock-info {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* 🚀 STYLES CHO GIÁ KHUYẾN MÃI MỚI (Pure CSS) */
+.promotion-price-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+.promotion-price-display .old-price {
+    font-size: 1.1em;
+    color: #ff5252; /* Red */
+    font-weight: 700;
+    text-decoration: line-through;
+}
+.promotion-price-display .new-price-modal {
+    font-size: 2.5em; /* Match food-price size */
+    color: #ff7b00; /* Orange */
+    font-weight: bold;
+}
+
+/* 🚀 THẺ CHA MỚI: Dùng để đặt Quantity và Nút Đặt hàng nằm ngang */
+.modal-action-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px; 
+    width: 100%;
+}
+
+
+/* Controls số lượng */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin: 0; 
+    border: 2px solid #ff7b00; 
+    border-radius: 30px; 
+    overflow: hidden; 
+    background-color: #fff;
+    transition: box-shadow 0.3s;
+    
+    flex-shrink: 0; 
+    width: 110px; 
+}
+.quantity-controls:hover {
+    box-shadow: 0 5px 15px rgba(255, 123, 0, 0.3);
+}
+
+.quantity-controls .control-btn {
+    background: transparent;
+    border: none;
+    color: #ff7b00; 
+    padding: 8px 10px; 
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.quantity-controls .control-btn svg {
+    width: 20px; 
+    height: 20px;
+    display: block; 
+}
+
+.quantity-controls .control-btn:hover:not(:disabled) {
+    background-color: #ff7b00;
+    color: white;
+}
+.quantity-controls .control-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #f8f8f8; 
+}
+
+.quantity-controls .quantity-display {
+    font-size: 1.1em; 
+    font-weight: 700;
+    color: #333;
+    padding: 0 5px; 
+    border-left: 1px solid #ff7b00; 
+    border-right: 1px solid #ff7b00;
+    min-width: 30px; 
+    text-align: center;
+    user-select: none; 
+}
+
+/* Nút Đặt Ngay trong Modal */
+.add-to-cart-btn {
+    background: #28a745; 
+    color: white;
+    border: none;
+    padding: 10px 25px; 
+    border-radius: 8px; 
+    font-size: 1.0em; 
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+    
+    flex-grow: 1; 
+}
+
+.add-to-cart-btn:hover {
+    background: #218838;
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Phần gợi ý */
+.related-section {
+    padding: 30px;
+    background: #fff3e0; 
+    border-top: 1px solid #ffd599;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.related-section h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #ff7b00;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff7b00;
+    padding-left: 10px;
+}
+
+.related-foods-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.related-food-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    border: 1px solid #ffe0b2;
+}
+.related-food-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-color: #ff7b00;
+}
+.related-food-card img {
+    height: 80px;
+    object-fit: cover;
+}
+.related-food-card h4 {
+    font-size: 0.9em;
+    margin: 5px 0 3px;
+    color: #333;
+}
+.related-food-card p {
+    font-size: 0.85em;
+    color: #ff7b00;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+/* MEDIA QUERIES cho mobile */
+@media (max-width: 768px) {
+    .menu-page {
+        padding: 1rem;
+    }
+    .menu-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+    .main-overview {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .image-section .food-image {
+        height: 200px;
+    }
+    .info-section {
+        align-items: center;
+        text-align: center;
+    }
+    /* ĐẢM BẢO XẾP CHỒNG TRÊN MOBILE */
+    .modal-action-row {
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    .quantity-controls {
+        margin: 0 auto; /* Đặt ở giữa */
+        width: fit-content;
+    }
+    .add-to-cart-btn {
+        width: 100%;
+        flex-grow: unset; 
+    }
+    .related-foods-list {
+        grid-template-columns: 1fr;
+    }
+    .related-section {
+        padding: 20px;
+    }
+}

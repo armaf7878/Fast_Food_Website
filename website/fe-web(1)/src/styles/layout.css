@@ -1,0 +1,150 @@
+/*trang login / sign in*/
+/* ===== Auth Layout có Header/Footer ===== */
+.auth-layout-with-header {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f5, #ff7c02);
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.auth-card {
+  background-color: #ffffff;
+  padding: 40px 35px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+
+/* Thẻ chứa form */
+.auth-card {
+  background-color: #ffffff;
+  padding: 40px 35px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Tiêu đề */
+.login-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-form input,
+.login-form select {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+.login-form input:focus,
+.login-form select:focus {
+  outline: none;
+  border-color: #e63946;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
+}
+
+/* Nút đăng nhập */
+.login-form button {
+  background-color: #e63946;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.login-form button:hover {
+  background-color: #c82e3c; 
+}
+
+/* Dòng chuyển sang login */
+.auth-link {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-link a {
+  color: #e63946;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Layout chính ===== */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e63946;
+  color: white;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: bold;
+}
+
+/* Nội dung chính */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Trang Home + Dashboard */
+.home-container, .dashboard-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+}
+

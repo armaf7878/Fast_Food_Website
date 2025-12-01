@@ -1,0 +1,259 @@
+.restaurants-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.restaurants-page-container h1 {
+    color: #FF7B00; /* Màu cam chủ đạo */
+    font-size: 2.5rem;
+    font-weight: 800;
+    border-bottom: 3px solid #FF7B00;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.restaurants-page-container p.subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* --- Thẻ Nhà Hàng (Restaurant Card) --- */
+.restaurant-card-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    border-left: 8px solid #FF4500; /* Đường viền đỏ cam nổi bật */
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-card-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.restaurant-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #FF7B00;
+    margin-right: 15px;
+}
+
+.restaurant-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.restaurant-info .tagline {
+    color: #FF4500; /* Màu đỏ cam cho Tagline */
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.restaurant-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.restaurant-details svg {
+    width: 14px;
+    height: 14px;
+    color: #FF7B00;
+}
+
+/* --- Phần Món Ăn Nổi Bật --- */
+.featured-foods-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FF4500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.featured-foods-title svg {
+    color: #FF7B00;
+    margin-right: 8px;
+}
+
+.foods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Thẻ Món Ăn (Food Card) */
+.food-card {
+    background-color: #fcfcfc;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.food-card:hover {
+    box-shadow: 0 2px 8px rgba(255, 123, 0, 0.2);
+    border-color: #FF7B00;
+}
+
+.food-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.food-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    min-height: 40px; /* Đảm bảo chiều cao thống nhất */
+    margin-bottom: 5px;
+}
+
+.food-card .price {
+    color: #FF4500;
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.food-card .order-btn {
+    background-color: #FF7B00;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.food-card .order-btn:hover {
+    background-color: #FF4500;
+}
+
+/* --- CTA Xem toàn bộ Menu --- */
+.view-all-menu-cta {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #FFF3E0; /* Màu cam nhạt */
+    color: #FF7B00;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 1px solid #FF7B00;
+}
+
+.view-all-menu-cta:hover {
+    background-color: #FF7B00;
+    color: white;
+}
+
+/* --- CTA Khám phá thêm (Footer) --- */
+.explore-cta {
+    text-align: center;
+    padding: 30px;
+    background-color: #FF45001a; /* Đỏ cam trong suốt */
+    border-radius: 12px;
+    margin-top: 50px;
+    border: 1px dashed #FF4500;
+}
+
+.explore-cta h3 {
+    color: #FF4500;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.explore-cta .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    background-color: #FF7B00;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.explore-cta .menu-btn:hover {
+    background-color: #FF4500;
+}
+/* CSS cho vùng có thể mở modal */
+.food-click-area {
+    cursor: pointer; /* Thay đổi con trỏ thành pointer */
+    transition: opacity 0.2s;
+    display: block;
+    text-decoration: none; /* Đảm bảo Link không bị gạch chân */
+    color: inherit;
+}
+
+/* Hiệu ứng khi rê chuột */
+.food-card:hover .food-click-area {
+    opacity: 0.85; 
+}
+/* CSS cho Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Xanh lá cho thành công */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000; /* Đảm bảo nổi trên các phần tử khác */
+    opacity: 0;
+    animation: fadeInOut 3s forwards; /* Thêm animation */
+}
+
+.toast-notification.error {
+    background-color: #f44336; /* Đỏ cho lỗi */
+}
+
+.view-cart-link {
+    color: #ffd700; /* Vàng sáng */
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Animation đơn giản: fade in và fade out */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(50px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(50px); }
+}

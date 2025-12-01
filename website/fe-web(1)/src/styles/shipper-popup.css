@@ -1,0 +1,302 @@
+/* Overlay tối nền */
+.shipper-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55); /* slate-900/55 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Card chính */
+.shipper-modal {
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: shipper-modal-in 0.2s ease-out;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Header */
+.shipper-modal-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.shipper-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.shipper-modal-sub {
+  margin: 2px 0 0;
+  font-size: 0.83rem;
+  color: #6b7280;
+}
+
+.shipper-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Nút đóng */
+.shipper-close-btn {
+  border: none;
+  background: #f3f4f6;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.shipper-close-btn:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Status pill */
+.shipper-status-pill {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-cooking {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-delivering {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.status-finish {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Body layout */
+.shipper-modal-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 14px;
+  padding: 14px 16px 16px;
+  overflow-y: auto;
+}
+
+/* Mobile: 1 cột */
+@media (max-width: 768px) {
+  .shipper-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .shipper-modal-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Cột */
+.shipper-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card con */
+.shipper-card {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.shipper-card h4 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Info grid */
+.shipper-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+  font-size: 0.88rem;
+}
+
+.shipper-info-grid .full-row {
+  grid-column: 1 / -1;
+}
+
+.shipper-info-grid .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9ca3af;
+}
+
+.shipper-info-grid p {
+  margin: 1px 0 0;
+  color: #111827;
+}
+
+.shipper-info-grid .price {
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+/* Danh sách món */
+.shipper-items-card {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.shipper-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shipper-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.shipper-item-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shipper-item-main img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-name {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.item-sub {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.shipper-item-total {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Map */
+.shipper-col-map .shipper-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.shipper-map-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 8px;
+}
+
+.shipper-map-wrapper {
+  flex: 1;
+  min-height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+
+.shipper-footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shipper-complete-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.shipper-complete-btn:hover {
+  background: #218838;
+}
+
+.shipper-complete-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+
+/* Placeholder khi chưa có GPS */
+.shipper-map-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Animation */
+@keyframes shipper-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

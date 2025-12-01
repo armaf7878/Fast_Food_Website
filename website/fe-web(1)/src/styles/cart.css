@@ -1,0 +1,167 @@
+/* Container chính của trang giỏ hàng */
+.cart-container {
+  max-width: 950px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: "Segoe UI", sans-serif;
+}
+/* Tiêu đề trang */
+.cart-container h1 {
+  text-align: center;
+  color: #ff7b00;
+  margin-bottom: 30px;
+}
+/* Bảng danh sách món ăn */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th, 
+.cart-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.cart-table th {
+  background: #fafafa;
+  color: #333;
+}
+/* Cột thông tin món ăn */
+.food-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.food-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 💥 CẬP NHẬT: Nút tăng/giảm số lượng (Pill Shape) */
+.quantity-controls {
+    display: flex;
+    justify-content: center; /* Căn giữa các thành phần bên trong */
+    align-items: center;
+    gap: 0;
+    border: 1px solid #ff7b00;
+    border-radius: 50px;
+    overflow: hidden;
+    height: 32px;
+    width: fit-content;
+    margin: 0 auto; /* 💡 Lệnh căn giữa khối trong ô <td> */
+} /* <--- DẤU } NÀY RẤT QUAN TRỌNG */
+
+.quantity-controls button {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  width: 32px; /* Chiều rộng bằng chiều cao */
+  height: 32px;
+  border-radius: 0; /* Bỏ border-radius cũ */
+  cursor: pointer;
+  font-size: 16px;
+  /* Thêm transition cho hiệu ứng mượt mà */
+  transition: background 0.2s, box-shadow 0.2s; 
+}
+
+/* CSS riêng cho nút "-" (bên trái) */
+.quantity-controls button:first-child {
+  border-right: 1px solid #e06d00; /* Đường phân cách */
+}
+
+/* CSS riêng cho nút "+" (bên phải) */
+.quantity-controls button:last-child {
+  border-left: 1px solid #e06d00; /* Đường phân cách */
+}
+
+.quantity-controls button:hover {
+  background: #e06d00;
+}
+
+/* Số lượng hiển thị */
+.quantity-controls span {
+  padding: 0 10px; /* Khoảng đệm cho số lượng */
+  font-weight: 600;
+  min-width: 25px;
+  text-align: center;
+}
+
+/* Nút xóa món */
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.remove-btn:hover {
+  color: #ff0000;
+}
+/* Khu vực tổng kết đơn hàng */
+.cart-summary {
+  margin-top: 25px;
+  text-align: right;
+}
+
+/* Dòng tổng cộng */
+.cart-summary h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+}
+
+.cart-summary span {
+  color: #0f0f0f;
+  font-weight: 600;
+  font-size: 20px; 
+  margin-top: 4px;
+}
+
+/* Nút thanh toán */
+.checkout-btn {
+  display: inline-block;
+  background: #1a8a42;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #107a3a;
+}
+/* Khi giỏ hàng trống */
+.empty-cart {
+  text-align: center;
+  padding: 40px;
+}
+
+/* Nút "Tiếp tục chọn món" */
+.go-menu {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff7b00;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.go-menu:hover {
+  background: #e06d00;
+}

@@ -1,0 +1,188 @@
+footer {
+  background: #fff;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+/* Footer main */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background: #ffffff;
+  gap: 40px;
+}
+/* Các phần trong footer */
+.footer-left, .footer-center, .footer-links, .footer-legal {
+  flex: 1;
+  padding: 10px;
+  min-width: 200px;
+}
+
+.footer-left h2 {
+  color: #ff7b00;
+  margin-bottom: 10px;
+}
+
+/* Subscribe */
+.subscribe {
+  display: flex;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  width: 70%;
+}
+
+.subscribe button {
+  background: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+/* icon mạng xã hội */
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+/* chung cho từng icon */
+.social {
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: transform 0.18s, background 0.18s, color 0.18s;
+  text-decoration: none;
+}
+
+/* hover effect */
+.social:hover {
+  transform: scale(1.12);
+  background: rgba(0,0,0,0.03);
+}
+
+/* màu khi hover theo brand */
+.facebook:hover {
+  color: #1877F2;
+  background: rgba(24,119,242,0.08);
+}
+
+.instagram:hover {
+  /* Instagram gradient can't be done on text color; pick brand-like pink */
+  color: #E4405F;
+  background: rgba(228,64,95,0.06);
+}
+
+.snapchat:hover {
+  color: #FFFC00;
+  background: rgba(255,252,0,0.08);
+}
+
+/* TikTok: chọn màu cyan-ish để nổi bật */
+.tiktok:hover {
+  color: #69C9D0;
+  background: rgba(105,201,208,0.06);
+}
+
+/* nhỏ gọn trên mobile */
+@media (max-width: 720px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .social {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+/* Footer links */
+.footer-links a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin: 4px 0;
+}
+
+.footer-links a:hover {
+  color: #ff7b00;
+}
+
+/* Footer legal links */
+.footer-legal {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-legal h4 {
+  margin-bottom: 10px;
+}
+
+.footer-legal a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin: 4px 0;
+}
+
+.footer-legal a:hover {
+  color: #ff7b00;
+}
+
+
+/* Bottom */
+.footer-bottom {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  font-size: 13px;
+}
+
+.footer-terms a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+.footer-terms a:hover {
+  text-decoration: underline;
+}
+/* === App Store & Google Play Buttons === */
+.app-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.app-btn:hover {
+  background: #333;
+}
+
+
+

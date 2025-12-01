@@ -1,0 +1,85 @@
+/* 🧭 Container chính */
+.shipper-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.shipper-container h1 {
+  text-align: center;
+  color: #1a8a42;
+  margin-bottom: 25px;
+}
+
+/* 🧾 Bảng đơn hàng */
+.shipper-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shipper-table th,
+.shipper-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.shipper-table th {
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* 🔵 Trạng thái */
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status.ready {
+  background: #ffe4b3;
+  color: #b36b00;
+}
+
+.status.delivering {
+  background: #b3e0ff;
+  color: #005c99;
+}
+
+.status.done {
+  background: #c2f5c2;
+  color: #147a00;
+}
+
+/* 🟢 Nút thao tác */
+.action-buttons button {
+  margin: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.pickup-btn {
+  background: #ff9800;
+}
+
+.pickup-btn:hover {
+  background: #e68900;
+}
+
+.delivered-btn {
+  background: #1a8a42;
+}
+
+.delivered-btn:hover {
+  background: #107a3a;
+}

@@ -1,0 +1,111 @@
+/* ---------------------------------------------------- */
+/* Ứng Tuyển (ApplicationForm) */
+/* ---------------------------------------------------- */
+
+.application-page {
+    padding: 40px 20px;
+    background-color: #f4f7f6;
+    min-height: 80vh;
+}
+
+.application-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.application-container h2 {
+    color: #ff7b00; /* Màu cam chủ đạo */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.application-container .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.application-form hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-group input:not([type="radio"]), 
+.form-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box; /* Quan trọng để padding không làm tăng chiều rộng */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #ff9f00;
+    box-shadow: 0 0 0 3px rgba(255, 159, 0, 0.2);
+    outline: none;
+}
+
+/* Radio button group */
+.position-select .radio-group {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    padding: 5px 0;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: #ff9f00; /* Màu cho radio button */
+}
+
+/* Button Nộp Hồ Sơ */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: 25px;
+}
+
+.submit-btn:hover {
+    background-color: #ff9f00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 123, 0, 0.3);
+}

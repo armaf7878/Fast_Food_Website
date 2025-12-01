@@ -1,0 +1,215 @@
+.dashboard-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.food-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.preview-img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Dropdown danh mục */
+.category-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Nút thêm món riêng cho trang Admin */
+.add-food-btn {
+    background: #ff7b00; 
+    color: #fff;
+    border: none;
+    border-radius: 10px; 
+    padding: 0.75rem 1.5rem; 
+    font-weight: 700;
+    font-size: 1.05rem; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    box-shadow: 0 4px 12px rgba(255, 123, 0, 0.4); 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+}
+
+.add-food-btn:hover {
+    /* Thay đổi màu khi hover */
+    background: #e66a00; 
+    /* 🌟 Tăng bóng khi hover */
+    box-shadow: 0 6px 16px rgba(255, 123, 0, 0.6); 
+    /* Nhấn chìm nhẹ khi click */
+    transform: translateY(-2px); 
+}
+
+.add-food-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 123, 0, 0.4);
+}
+
+
+
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.food-table th, .food-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.food-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.food-img {
+  width: 80px;
+  height: 70px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.no-img {
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.update-btn {
+    /* Kích thước và căn chỉnh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    
+    /* Màu sắc và hình dạng */
+    background-color: #ff9f00; /* Màu cam chủ đạo */
+    color: white;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    
+    /* Hiệu ứng (Transition) */
+    transition: all 0.3s ease; 
+    
+    /* Đổ bóng (Shadow) - Làm nút nổi khối 3D */
+    box-shadow: 0 5px 15px rgba(255, 159, 0, 0.4); 
+    text-transform: uppercase; /* Thêm chữ hoa cho cảm giác chuyên nghiệp */
+}
+
+/* Hiệu ứng khi di chuột (Hover/Focus) */
+.update-btn:hover {
+    background-color: #e68a00; /* Màu cam đậm hơn */
+    box-shadow: 0 8px 20px rgba(255, 159, 0, 0.6); /* Bóng đậm hơn */
+    transform: translateY(-2px); /* Nhấc nhẹ nút lên */
+}
+
+/* Trạng thái bị vô hiệu hóa (Disabled) */
+.update-btn:disabled {
+    background-color: #cccccc; 
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* ---------------------------------------------------- */
+/* (Tùy chọn) Làm đẹp các nút khác (Thêm, Sửa, Xóa) */
+/* ---------------------------------------------------- */
+
+/* Nút THÊM MÓN (.add-food-btn) - Dùng style tương tự Lưu */
+.add-food-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #28a745; /* Màu xanh lá cho hành động Thêm */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.add-food-btn:hover {
+    background-color: #1e7e34;
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.45);
+    transform: translateY(-1px);
+}
+
+/* Nút SỬA (.edit-btn) - Dùng màu xanh dương */
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Nút XÓA (.delete-btn) - Dùng màu đỏ */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.delete-btn:hover {
+    background-color: #c82333;
+}
