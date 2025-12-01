@@ -43,10 +43,10 @@ def vnpay_return(request):
         order.payment_status = "paid"
         order.save()
 
-        return redirect(f"http://localhost:5173/order-tracking")
+        return redirect(f"https://fast-food-website-black.vercel.app/order-tracking")
 
     else:
         order.payment_status = "canceled"
         order.save()
 
-        return redirect(f"http://localhost:5173/order-tracking")
+        return redirect(f"https://fast-food-website-black.vercel.app/order-tracking")
