@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import {API_ChatBot} from "../../app/api";
+import { API_ChatBot } from "../../app/api";
+
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState("");
@@ -13,7 +14,7 @@ export default function ChatBot() {
 
     const toggleChat = () => setIsOpen(!isOpen);
 
-    const sendMessage = async (e) => {
+    const sendMessage = (e) => {
         e.preventDefault();
         if (!input.trim()) return;
 
@@ -21,74 +22,66 @@ export default function ChatBot() {
         setMessages((prev) => [...prev, userMsg]);
         setInput("");
         setLoading(true);
+
         API_ChatBot(input)
-        .then((res) => {
-            const botMsg = {
-                role: "assistant",
-                content: res.message || "Bot không phản hồi.",
-            };
-            setMessages((prev) => [...prev, botMsg]);
-        })
-        .catch((err) => {
-            setMessages((prev) => [
-                ...prev,
-                {
+            .then((res) => {
+                const botMsg = {
                     role: "assistant",
-                    content: JSON.stringify(err),
-                },
-            ]);
-        })
-        .finally(
-            () => setLoading(false)
-        )
+                    content: res.message || "Bot không phản hồi.",
+                };
+                setMessages((prev) => [...prev, botMsg]);
+            })
+            .catch((err) => {
+                setMessages((prev) => [
+                    ...prev,
+                    { role: "assistant", content: JSON.stringify(err) },
+                ]);
+            })
+            .finally(() => setLoading(false));
     };
 
     return (
         <>
-
             {!isOpen && (
                 <button
                     onClick={toggleChat}
-                    className="fixed bottom-6 right-6 w-16 h-16 bg-orange-500 hover:bg-orange-600 
-                    text-white rounded-full shadow-xl flex items-center justify-center 
-                    transition-all duration-200 hover:scale-110 z-50"
+                    className="fixed bottom-6 right-6 h-14 w-14 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center z-50 transition transform hover:scale-110"
                 >
-                    <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    <svg className="w-7 h-7" fill="none" stroke="white" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.46.497 2.825 1.35 3.95L4 20l3.15-1.05C8.175 19.663 10.02 20 12 20z" />
                     </svg>
                 </button>
             )}
 
-
             {isOpen && (
-                <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-xl shadow-2xl 
-                    flex flex-col overflow-hidden z-50 border border-gray-200 animate-fadeUp">
+                <div className="fixed bottom-6 right-6 w-96 h-[550px] bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden z-50">
 
-                    <div className="bg-orange-500 text-white p-4 flex justify-between items-center">
+                    <div className="bg-orange-500 p-4 text-white flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            <img 
+                            <img
                                 src="https://cdn-icons-png.freepik.com/512/6014/6014401.png"
-                                className="w-9 h-9 rounded-full border border-white shadow"
-                                alt="Bot"
+                                className="w-9 h-9 rounded-full shadow"
                             />
                             <div>
-                                <h2 className="font-bold text-lg">FastFood ChatBot</h2>
+                                <h2 className="font-semibold text-lg">FastFood Assistant</h2>
                                 <p className="text-xs text-orange-100">Sẵn sàng hỗ trợ bạn</p>
                             </div>
                         </div>
 
-                        <button onClick={toggleChat} className="hover:bg-orange-600 p-1 rounded">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button
+                            onClick={toggleChat}
+                            className="p-2 rounded hover:bg-orange-600"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
 
-                    {/* Chat Body */}
-                    <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-4">
+                    <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
                         {messages.length === 0 && (
-                            <div className="text-center text-gray-500 py-10">
-                                <p>Xin chào! Tôi có thể giúp gì cho bạn?</p>
+                            <div className="text-center text-gray-500 pt-10">
+                                Hãy nhắn điều bạn muốn hỏi!
                             </div>
                         )}
 
@@ -96,28 +89,25 @@ export default function ChatBot() {
                             <div
                                 key={idx}
                                 className={`flex items-start gap-3 ${
-                                    msg.role === "user" ? "flex-row-reverse" : "flex-row"
+                                    msg.role === "user" ? "flex-row-reverse" : ""
                                 }`}
                             >
-                                <div className="flex-shrink-0">
-                                    {msg.role === "assistant" ? (
-                                        <img
-                                            src="https://th.bing.com/th/id/OIP.FV3x4TEtn472LJGjAkzAVgHaHa?rs=1&pid=ImgDetMain"
-                                            className="w-8 h-8 rounded-full"
-                                            alt="Bot"
-                                        />
-                                    ) : (
-                                        <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold">
-                                            U
-                                        </div>
-                                    )}
-                                </div>
+                                {msg.role === "assistant" ? (
+                                    <img
+                                        src="https://cdn-icons-png.freepik.com/512/6014/6014401.png"
+                                        className="w-8 h-8 rounded-full shadow"
+                                    />
+                                ) : (
+                                    <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold shadow">
+                                        U
+                                    </div>
+                                )}
 
                                 <div
-                                    className={`p-3 rounded-xl max-w-[75%] text-sm shadow ${
+                                    className={`px-4 py-2 rounded-xl max-w-[70%] text-sm shadow ${
                                         msg.role === "user"
                                             ? "bg-orange-500 text-white"
-                                            : "bg-white border border-gray-200"
+                                            : "bg-white border"
                                     }`}
                                 >
                                     {msg.content}
@@ -128,39 +118,24 @@ export default function ChatBot() {
                         <div ref={bottomRef} />
                     </div>
 
-                    {/* Input */}
-                    <form onSubmit={sendMessage} className="p-3 bg-white border-t">
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="text"
-                                value={input}
-                                onChange={(e) => setInput(e.target.value)}
-                                placeholder="Nhập tin nhắn..."
-                                className="flex-1 border border-gray-300 rounded-md px-3 py-2 
-                                focus:ring-2 focus:ring-orange-400 focus:outline-none text-sm"
-                            />
-
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="px-4 py-2 bg-orange-500 text-white rounded-md 
-                                hover:bg-orange-600 transition disabled:opacity-50"
-                            >
-                                {loading ? "..." : "Gửi"}
-                            </button>
-                        </div>
+                    <form onSubmit={sendMessage} className="p-3 bg-white border-t flex items-center gap-2">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Nhập tin nhắn..."
+                            className="flex-1 px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-orange-400 outline-none"
+                        />
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50"
+                        >
+                            {loading ? "..." : "Gửi"}
+                        </button>
                     </form>
                 </div>
             )}
-
-            {/* CSS Animation */}
-            <style>{`
-                @keyframes fadeUp {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fadeUp { animation: fadeUp 0.25s ease-out; }
-            `}</style>
         </>
     );
 }

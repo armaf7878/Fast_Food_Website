@@ -332,7 +332,7 @@ export default function HomePage() {
 
           <div className="ff-hero-side">
             {vouchers.map((voucher) => (
-              <Link to="/promotions" key={voucher.voucher_id} className="ff-voucher-card-link">
+              <div key={voucher.voucher_id} className="ff-voucher-card-link">
                 <div className="ff-voucher-card">
                   <div className="ff-voucher-icon">
                     {voucher.discount_type === "percent"
@@ -356,7 +356,7 @@ export default function HomePage() {
                   </div>
                   <button><Link to='/menu'>Đặt món</Link></button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
