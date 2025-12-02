@@ -9,9 +9,9 @@ from fast_food.settings import OPEN_API_KEY
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def send(request):
-    response_foods = requests.get('http://127.0.0.1:8000/api/foods/showall/')
+    response_foods = requests.get('http://fast-food-website.onrender.com/api/foods/showall/')
     foods = response_foods.json()
-    response_cate = requests.get('http://127.0.0.1:8000/api/catalog/showall/')
+    response_cate = requests.get('http://fast-food-website.onrender.com/api/catalog/showall/')
     cate = response_cate.json()
     question = "Đây là câu hỏi từ khách hàng:" + request.data.get("question")
     context = """Bạn là FastFoodBot – trợ lý ảo chính thức của chuỗi cửa hàng Express Fast Food.
