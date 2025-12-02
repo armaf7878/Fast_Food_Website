@@ -3,7 +3,10 @@
 <p align="center">
   Full-stack food ordering platform with real-time tracking, AI chatbot and VNPay online payment.
 </p>
-
+<p align="center"><a href="https://fast-food-website-black.vercel.app/" >Website Link Test</a></p>
+<p align="center">
+ Free domain & Free database so website is sometimes in sleep mode waiting from 50s to 2m for loading...
+</p>
 <p align="center">
   <img src="https://img.shields.io/badge/backend-Django%20%2B%20DRF-092E20?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
@@ -11,6 +14,7 @@
   <img src="https://img.shields.io/badge/realtime-WebSocket-00897B?style=for-the-badge&logo=websocket&logoColor=white" />
   <img src="https://img.shields.io/badge/payment-VNPay-005BAC?style=for-the-badge" />
   <img src="https://img.shields.io/badge/AI-OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
+  
 </p>
 
 <p align="center">
