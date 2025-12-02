@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import {API_ChatBot} from "../../app/api";
-import logo1 from "../../../public/images/logo1.png";
+const botLogo = "/images/logo1.png";
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState("");
@@ -68,7 +68,7 @@ export default function ChatBot() {
                     <div className="bg-orange-500 text-white p-4 flex justify-between items-center">
                         <div className="flex items-center gap-3">
                             <img 
-                                src={logo1}
+                                src={botLogo}
                                 className="w-9 h-9 rounded-full border border-white shadow"
                                 alt="Bot"
                             />
